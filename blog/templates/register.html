@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<br>
+<h3><strong>Register</strong></h3>
+<hr>
+
+<form method="POST">
+
+    {{form.as_p}}
+    <br>
+    <button type="submit" class="btn btn-dark">Register</button>
+</form>
+
+{% endblock body %}

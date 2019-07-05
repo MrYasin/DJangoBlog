@@ -8,5 +8,19 @@
     <p>__FILL__BLANK__FILL__BLANK__FILL__BLANK</p>
 </div>    
 
+<p>
+
+    {% if request.user.is_authenticated %}
+
+        Logged in as, {{ request.user.username }}
+
+    {% else %}
+
+        Not logged in
+
+    {% endif %}
+
+</p>
+
 
 {% endblock  %}

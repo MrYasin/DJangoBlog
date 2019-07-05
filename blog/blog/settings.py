@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'article',
     'user',
     'crispy_forms',
     'ckeditor',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'django.template.context_processors.media',  ### To access the MEDIA_URL in template
             ],
         },
     },
@@ -129,6 +133,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+## CKEDITOR
+
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
@@ -137,4 +143,7 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+### FILE UPLOAD
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

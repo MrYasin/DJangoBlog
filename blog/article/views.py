@@ -38,7 +38,7 @@ def addarticle(request):
         article.save()
 
         messages.success(request,"Article created successfully.")
-        return redirect("index")
+        return redirect("article:dashboard")
 
     return render(request, template_name = "addarticle.html", context={"form":form})
 
@@ -63,7 +63,18 @@ def updateArticle(request, id):
         article.save()
 
         messages.success(request, "Article updated successfully.")
-        return redirect("index")
+        return redirect("article:dashboard")
 
     return render(request, template_name="update.html", context={"form":form})
+
+def deleteArticle(request, id):
+
+    article = get_object_or_404(Article, id = id)
+    article.delete()
+    
+    messages.info(request, "Article deleted successfully.")
+
+    return redirect("article:dashboard")
+
+
 

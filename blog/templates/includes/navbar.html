@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/">"BLANK_NAME"</a>
+    <a class="navbar-brand" href="{% url 'index'  %}">"BLANK_NAME"</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,11 +10,11 @@
         <ul class="navbar-nav mr-auto">
             
             <li class="nav-item active">
-                <a class="nav-link" href="/about">About</a>
+                <a class="nav-link" href="{% url 'about'  %}">About</a>
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="/articles">Articles</a>
+                <a class="nav-link" href="{% url 'article:articles' %}">Articles</a>
             </li>
         
         </ul>
@@ -25,21 +25,21 @@
             {% if request.user.is_authenticated %}
             
             <li class="nav-item active">
-                    <a class="nav-link" href="/articles/dashboard">Control Panel</a>
+                    <a class="nav-link" href="{% url 'article:dashboard' %}">Control Panel</a>
                 </li>
     
                 <li class="nav-item active">
-                    <a class="nav-link" href="/user/logout">Logout</a>
+                    <a class="nav-link" href="{% url 'user:logout' %}">Logout</a>
                 </li>
     
             {% else %}
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/user/login">Login</a>
+                    <a class="nav-link" href="{% url 'user:login' %}">Login</a>
                 </li>
                 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/user/register">Register</a>
+                    <a class="nav-link" href="{% url 'user:register' %}">Register</a>
                 </li>
 
             {% endif %}

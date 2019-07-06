@@ -19,6 +19,13 @@ def about(request):
 
 def articles(request):
 
+    keyword = request.GET.get("keyword")
+    
+    if keyword:
+
+        articles = Article.objects.filter(title__contains = keyword)
+        return render(request, template_name = "articles.html", context={"articles":articles})
+
     articles = Article.objects.all()
 
     return render(request, template_name = "articles.html", context={"articles":articles})

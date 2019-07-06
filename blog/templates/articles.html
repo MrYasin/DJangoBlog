@@ -5,6 +5,12 @@
 
     <br>
 
+    <form style="float: right">
+        {% csrf_token %}
+        <input type="text" name = "keyword" input-sm" maxlength="64" placeholder="Search">
+        <button type="submit" class="btn btn-dark btn-sm">Search</button>
+    </form>
+
     {% if articles %}
 
         {% for article in articles %}
@@ -46,16 +52,17 @@
 
                     <a style="float: right" href="/articles/article/{{ article.id }}" class="btn btn-info">Read More...</a>
         
-                    <hr>
         
                 </div>
-        
+
             </div>
+            <hr>
 
         {% endfor %}
 
     {% else %}
 
+        <br>
         <div class="alert alert-danger">
             No articles in this "BLANK_NAME".
         </div>

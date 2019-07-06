@@ -16,6 +16,13 @@ def about(request):
 
     return render(request, template_name = "about.html")
 
+
+def articles(request):
+
+    articles = Article.objects.all()
+
+    return render(request, template_name = "articles.html", context={"articles":articles})
+
 @login_required(login_url="user:login")
 def dashboard(request):
 

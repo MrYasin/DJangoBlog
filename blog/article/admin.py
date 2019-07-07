@@ -1,10 +1,14 @@
 from django.contrib import admin
 
+from .models import Article, Comment
+
+
 # Register your models here.
+
+admin.site.register(Comment)
 
 #### ARTICLE CLASS ####
 
-from .models import Article
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     
